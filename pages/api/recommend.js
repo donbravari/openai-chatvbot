@@ -13,8 +13,6 @@ export default async function handler(req, res) {
     res.status(200).end();
     return;
   }
-  
-  if (req.method !== 'POST') return res.status(405).end();
   try {
     const { message } = req.body;
   
