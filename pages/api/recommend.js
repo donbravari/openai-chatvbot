@@ -4,14 +4,12 @@ import axios from 'axios';
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // O mejor: 'https://artefolk-mistica-shop.myshopify.com'
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader("Access-Control-Allow-Origin", "https://artefolk-mistica-shop.myshopify.com");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
   if (req.method === 'OPTIONS') {
-    // Preflight request
-    res.status(200).end();
-    return;
+    return res.status(200).end();
   }
   try {
     const { message } = req.body;
